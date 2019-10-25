@@ -8,9 +8,9 @@ namespace Circle_Algo_
     {
         // Center
 
-        public static int R = 10;   // Center >> ( 0 , R )
-        public static int Rx = 0;
-        public static int P = 1 - R;  // R
+        public static int R { get; set; } = 10;   // Center >> ( 0 , R )
+        public static int Rx { get; set; } = 0;
+        public static int P { get; set; } = 1 - R;  // R
         // Size
         public static int x = 90;
         public static int y = 80;
