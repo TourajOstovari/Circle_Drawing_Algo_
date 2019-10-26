@@ -13,12 +13,13 @@ namespace Circle_Algo_
         public static int P { get; set; } = 1 - R;  // R
         // Size
         public static int x = 90;
-        public static int y = 80;
+
         // Ends here the Size
 
         // End Center
-        int Pos_X = 20; int Pos_Y = 60;
-        
+        private int Pos_X = 20;
+        private int Pos_Y = 60;
+
 
         public Form1()
         {
@@ -44,13 +45,13 @@ namespace Circle_Algo_
                         ++Rx;
                         --R;
                         P = P + 2 * Rx - 2 * R + 5;
-                        graphics.DrawArc(pen, Pos_X, Pos_Y, x, y, Rx, R);
+                        graphics.DrawArc(pen, Pos_X, Pos_Y, x, x, Rx, R);
                     }
                     else
                     {
                         ++Rx;
                         P = P + 2 * Rx + 3;
-                        graphics.DrawArc(pen, Pos_X, Pos_Y, x, y, Rx, R);
+                        graphics.DrawArc(pen, Pos_X, Pos_Y, x, x, Rx, R);
                     }
                 }
                 R += R;
@@ -60,15 +61,14 @@ namespace Circle_Algo_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            R = int.Parse(R_updown.Value.ToString());
-            Pos_X = int.Parse(PosX_updown.Value.ToString());
-            Pos_Y = int.Parse(PosY_updown.Value.ToString());
-            //x = int.Parse(SizeX_updown.Value.ToString());
-            //y = int.Parse(SizeY_updown.Value.ToString());
-            x = int.Parse(R_updown.Value.ToString());
-            y = int.Parse(R_updown.Value.ToString());
-            this.Invalidate();
-
+            if (Convert.ToInt32(R_updown.Value.ToString()) > 1)
+            {
+                R = int.Parse(R_updown.Value.ToString());
+                Pos_X = int.Parse(PosX_updown.Value.ToString());
+                Pos_Y = int.Parse(PosY_updown.Value.ToString());
+                x = int.Parse(R_updown.Value.ToString());
+                Invalidate();
+            }
         }
     }
 }
